@@ -1,0 +1,27 @@
+
+{
+    "auctionAdsApp": {
+        "advertisement" : {
+            "home": {
+                "title": "Advertisements",
+                "createLabel": "Créer un nouveau Advertisement",
+                "createOrEditLabel": "Créer ou éditer un Advertisement",
+                "search": "Recherche pour Advertisement"
+            },
+            "created": "Un nouveau Advertisement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Advertisement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Advertisement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Advertisement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Advertisement"
+            },
+            "idAd": "Id Ad",
+            "description": "Description",
+            "images": "Images",
+            "date": "Date",
+            "user": "User"
+        }
+    }
+}

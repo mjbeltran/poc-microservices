@@ -1,0 +1,85 @@
+<div>
+    <h2>
+        <span jhiTranslate="auctionAdsApp.autionsAds.home.title">Autions Ads</span>
+        <button class="btn btn-primary float-right jh-create-entity create-autions-ads-auctuin-ads" [routerLink]="['/', { outlets: { popup: ['autions-ads-auctuin-ads-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="auctionAdsApp.autionsAds.home.createLabel">
+            Create new Autions Ads
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'auctionAdsApp.autionsAds.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="autionsAds">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idAuction"><span jhiTranslate="auctionAdsApp.autionsAds.idAuction">Id Auction</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="priceAuction"><span jhiTranslate="auctionAdsApp.autionsAds.priceAuction">Price Auction</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateAction"><span jhiTranslate="auctionAdsApp.autionsAds.dateAction">Date Action</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="advertisement.idAd"><span jhiTranslate="auctionAdsApp.autionsAds.advertisement">Advertisement</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="user.idUser"><span jhiTranslate="auctionAdsApp.autionsAds.user">User</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let autionsAds of autionsAds ;trackBy: trackId">
+                <td><a [routerLink]="['../autions-ads-auctuin-ads', autionsAds.id ]">{{autionsAds.id}}</a></td>
+                <td>{{autionsAds.idAuction}}</td>
+                <td>{{autionsAds.priceAuction}}</td>
+                <td>{{autionsAds.dateAction | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="autionsAds.advertisement">
+                        <a [routerLink]="['../advertisement-auctuin-ads', autionsAds.advertisement?.id ]" >{{autionsAds.advertisement?.idAd}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{autionsAds.user?.idUser}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../autions-ads-auctuin-ads', autionsAds.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'autions-ads-auctuin-ads/'+ autionsAds.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'autions-ads-auctuin-ads/'+ autionsAds.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

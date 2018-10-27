@@ -1,0 +1,45 @@
+
+<div *ngIf="advertisement">
+    <h2><span jhiTranslate="auctionAdsApp.advertisement.detail.title">Advertisement</span> {{advertisement.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="auctionAdsApp.advertisement.idAd">Id Ad</span></dt>
+        <dd>
+            <span>{{advertisement.idAd}}</span>
+        </dd>
+        <dt><span jhiTranslate="auctionAdsApp.advertisement.description">Description</span></dt>
+        <dd>
+            <span>{{advertisement.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="auctionAdsApp.advertisement.images">Images</span></dt>
+        <dd>
+            <div *ngIf="advertisement.images">
+                <a (click)="openFile(advertisement.imagesContentType, advertisement.images)" jhiTranslate="entity.action.open">open</a>
+                {{advertisement.imagesContentType}}, {{byteSize(advertisement.images)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="auctionAdsApp.advertisement.date">Date</span></dt>
+        <dd>
+            <span>{{advertisement.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="auctionAdsApp.advertisement.user">User</span></dt>
+        <dd>
+            {{advertisement.user?.idUser}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'advertisement-auctuin-ads/'+ advertisement.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

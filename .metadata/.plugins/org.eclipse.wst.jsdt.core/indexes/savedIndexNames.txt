@@ -1,0 +1,9 @@
+INDEX VERSION 1.4+F:\poc-microservices\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+540461418.index
+3611127429.index
+2535598853.index
+2019925577.index
+3433436201.index
+15609081.index
+1640798514.index
+2379486039.index

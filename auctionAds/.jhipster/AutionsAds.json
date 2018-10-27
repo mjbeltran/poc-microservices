@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "advertisement",
+            "otherEntityName": "advertisement",
+            "otherEntityField": "idAd"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "idUser"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idAuction",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "priceAuction",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateAction",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180924143823",
+    "entityTableName": "autions_ads",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "auctuinAds"
+}

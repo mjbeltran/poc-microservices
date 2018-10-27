@@ -1,0 +1,27 @@
+
+{
+    "auctionAdsApp": {
+        "autionsAds" : {
+            "home": {
+                "title": "Autions Ads",
+                "createLabel": "Crear nuevo Autions Ads",
+                "createOrEditLabel": "Crear o editar Autions Ads",
+                "search": "Search for Autions Ads"
+            },
+            "created": "Un nuevo Autions Ads ha sido creado con el identificador {{ param }}",
+            "updated": "Un Autions Ads ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Autions Ads ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Autions Ads {{ id }}?"
+            },
+            "detail": {
+                "title": "Autions Ads"
+            },
+            "idAuction": "Id Auction",
+            "priceAuction": "Price Auction",
+            "dateAction": "Date Action",
+            "advertisement": "Advertisement",
+            "user": "User"
+        }
+    }
+}

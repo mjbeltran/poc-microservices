@@ -1,0 +1,27 @@
+
+{
+    "auctionAdsApp": {
+        "autionsAds" : {
+            "home": {
+                "title": "Autions Ads",
+                "createLabel": "Create a new Autions Ads",
+                "createOrEditLabel": "Create or edit a Autions Ads",
+                "search": "Search for Autions Ads"
+            },
+            "created": "A new Autions Ads is created with identifier {{ param }}",
+            "updated": "A Autions Ads is updated with identifier {{ param }}",
+            "deleted": "A Autions Ads is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Autions Ads {{ id }}?"
+            },
+            "detail": {
+                "title": "Autions Ads"
+            },
+            "idAuction": "Id Auction",
+            "priceAuction": "Price Auction",
+            "dateAction": "Date Action",
+            "advertisement": "Advertisement",
+            "user": "User"
+        }
+    }
+}

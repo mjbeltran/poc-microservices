@@ -1,0 +1,35 @@
+
+
+entity Advertisement {
+    idAd Integer required,
+    description String required,
+    images Blob required,
+    date LocalDate required
+}
+
+relationship ManyToOne{
+	Advertisement{user(idUser)} to User
+}
+
+
+entity AutionsAds {
+    idAuction Integer required,
+    priceAuction Double required,
+    dateAction LocalDate
+}
+
+relationship ManyToOne{
+	AutionsAds{advertisement(idAd)} to Advertisement
+}
+
+relationship ManyToOne{
+	AutionsAds{user(idUser)} to User
+}
+  
+// Set pagination options
+paginate * with infinite-scroll
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with auctuinAds
